@@ -10,6 +10,7 @@ export const getWeatherDetails = async (city: string) => {
         q: city,
         appid: API_KEY,
         units: 'metric',
+        lang: 'es',
       },
     });
     return response.data;
@@ -29,6 +30,7 @@ export const getHourlyForecast = async (city: string) => {
         q: sanitizedCity,
         appid: API_KEY,
         units: 'metric',
+        lang:'es',
       },
     });
 
