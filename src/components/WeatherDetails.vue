@@ -141,17 +141,17 @@ export default defineComponent({
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 100vh; 
+  min-height: 100vh; /* Ajuste para que ocupe al menos el alto completo */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; 
-  opacity: 0.7; 
+  opacity: 0.9; /* Opacidad ajustada */
 }
 
 .weather-content {
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px; /* Ancho máximo para contenido */
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -191,17 +191,32 @@ export default defineComponent({
 
 .custom-title {
   font-weight: bold;
-  font-size: 2.5rem;
-  font-family: 'Times New Roman';
+  font-size: 2rem; /* Tamaño de fuente ajustado */
+  font-family: 'Roboto', sans-serif; /* Familia de fuente específica */
   color: white; 
+  text-align: center; /* Alineación centrada */
 }
 
 .custom-subtitle {
   font-weight: bold;
-  font-size: 1.5rem;
-  font-family: 'Times New Roman';
+  font-size: 1.2rem; /* Tamaño de fuente ajustado */
+  font-family: 'Roboto', sans-serif; /* Familia de fuente específica */
   color: white; 
+  text-align: center; /* Alineación centrada */
+}
+
+/* Estilos para hacer responsive */
+@media (max-width: 600px) {
+  .weather-details {
+    padding: 10px; /* Reducción de padding en dispositivos pequeños */
+  }
+  
+  .custom-title {
+    font-size: 1.8rem; /* Tamaño de fuente reducido para dispositivos pequeños */
+  }
+  
+  .custom-subtitle {
+    font-size: 1rem; /* Tamaño de fuente reducido para dispositivos pequeños */
+  }
 }
 </style>
-
-
