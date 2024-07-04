@@ -1,8 +1,8 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Detalles del clima</ion-title>
+      <ion-toolbar class="ion-align-items-center">
+        <ion-title class="custom-title">Detalles del clima</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -54,4 +54,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.custom-title {
+  font-weight: bold;
+  font-size: 2.5rem;
+  font-family: 'Times New Roman';
+  color: white; /* Asegúrate de que el color del texto sea blanco si es necesario */
+  text-align: center; /* Centrar el texto */
+}
+
+/* Estilos adicionales para centrar */
+.ion-align-items-center {
+  justify-content: center !important; /* Centra horizontalmente */
+}
 </style>
+

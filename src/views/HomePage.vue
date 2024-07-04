@@ -53,23 +53,23 @@ export default defineComponent({
 
 <style scoped>
 ion-header {
-  --background: #3880ff; /* Ionic primary color */
+  --background: #3880ff; 
   color: white;
   text-align: center;
 }
 
 .custom-title {
   font-weight: bold;
-  font-size: 1.2rem;
-  font-family: 'Times New Roman'; /* Cambiar tipo de letra */
+  font-size: 2.5rem;
+  font-family: 'Times New Roman'; 
 }
 
 .city-card {
   margin: 16px;
-  padding: 32px; /* Increase padding for larger size */
-  background: rgba(128, 128, 128, 0.7); /* Gray color with opacity */
+  padding: 32px;
+  background: rgba(128, 128, 128, 0.7);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 16px; /* More rounded corners */
+  border-radius: 16px; 
 }
 
 ion-card-content {
@@ -89,7 +89,7 @@ ion-card-content {
   height: 100%;
   overflow: hidden;
   z-index: -1;
-  pointer-events: none; /* Ensures background elements don't block interaction */
+  pointer-events: none; 
   background: url('https://i.makeagif.com/media/8-11-2023/Xu_roP.gif') repeat-x;
   background-size: cover;
 }

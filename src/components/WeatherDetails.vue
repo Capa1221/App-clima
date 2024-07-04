@@ -1,28 +1,56 @@
 <template>
-  <ion-card v-if="weather && weather.main && weather.weather && weather.coord">
+  <ion-card v-if="weather && weather.main && weather.weather && weather.coord" class="weather-details">
     <ion-card-header>
-      <ion-card-title>{{ weather.name }}</ion-card-title>
-      <ion-card-subtitle>{{ new Date().toLocaleDateString() }}</ion-card-subtitle>
+      <ion-card-title class="custom-title">{{ weather.name }}</ion-card-title>
+      <ion-card-subtitle class="custom-subtitle">{{ new Date().toLocaleDateString() }}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12">
-            <p>Temperatura: {{ weather.main.temp }} °C</p>
-            <p>Condiciones: {{ weather.weather[0].description }}</p>
-            <p>Humedad: {{ weather.main.humidity }}%</p>
-            <p>Presión: {{ weather.main.pressure }} hPa</p>
-            <p>Visibilidad: {{ weather.visibility / 1000 }} km</p>
-            <p>Velocidad del viento: {{ weather.wind.speed }} m/s</p>
-            <p>Dirección del viento: {{ weather.wind.deg }}°</p>
-            <p>Amanecer: {{ formatTime(weather.sys.sunrise) }}</p>
-            <p>Atardecer: {{ formatTime(weather.sys.sunset) }}</p>
-            <p>Coordenadas: [{{ weather.coord.lat }}, {{ weather.coord.lon }}]</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <go-back-button />
-      <ion-button @click="goToHourlyForecast"color="primary">Pronóstico por hora</ion-button>
+    <ion-card-content class="weather-content">
+      <div class="weather-details-grid">
+        <div class="weather-detail">
+          <p class="detail-label">Temperatura:</p>
+          <p class="detail-value">{{ weather.main.temp }} °C</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Condiciones:</p>
+          <p class="detail-value">{{ weather.weather[0].description }}</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Humedad:</p>
+          <p class="detail-value">{{ weather.main.humidity }}%</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Presión:</p>
+          <p class="detail-value">{{ weather.main.pressure }} hPa</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Visibilidad:</p>
+          <p class="detail-value">{{ weather.visibility / 1000 }} km</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Velocidad del viento:</p>
+          <p class="detail-value">{{ weather.wind.speed }} m/s</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Dirección del viento:</p>
+          <p class="detail-value">{{ weather.wind.deg }}°</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Amanecer:</p>
+          <p class="detail-value">{{ formatTime(weather.sys.sunrise) }}</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Atardecer:</p>
+          <p class="detail-value">{{ formatTime(weather.sys.sunset) }}</p>
+        </div>
+        <div class="weather-detail">
+          <p class="detail-label">Coordenadas:</p>
+          <p class="detail-value">[{{ weather.coord.lat }}, {{ weather.coord.lon }}]</p>
+        </div>
+      </div>
+      <div class="weather-buttons">
+        <go-back-button />
+        <ion-button @click="goToHourlyForecast" color="primary">Pronóstico por hora</ion-button>
+      </div>
     </ion-card-content>
   </ion-card>
   <ion-card v-else-if="loading">
@@ -104,11 +132,76 @@ export default defineComponent({
 </script>
 
 <style scoped>
-ion-card-title {
-  font-size: 1.5em;
+.weather-details {
+  background-image: url('https://st4.depositphotos.com/17054972/19881/v/450/depositphotos_198812272-stock-illustration-rainy-sky-background-cartoon-style.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  opacity: 0.7; 
 }
-ion-card-subtitle {
-  font-size: 1em;
-  color: gray;
+
+.weather-content {
+  width: 100%;
+  max-width: 600px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 20px; 
+}
+
+.weather-details-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 10px; 
+}
+
+.weather-detail {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center; 
+}
+
+.detail-label {
+  font-weight: bold;
+  color: white; 
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  color: white; 
+}
+
+.weather-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; 
+  margin-top: 20px; 
+}
+
+.custom-title {
+  font-weight: bold;
+  font-size: 2.5rem;
+  font-family: 'Times New Roman';
+  color: white; 
+}
+
+.custom-subtitle {
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Times New Roman';
+  color: white; 
 }
 </style>
+
+
